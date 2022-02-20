@@ -107,12 +107,22 @@ struct DataFetchingPresenter<Model>{
 
 
 struct DataFetchingRequest<ResponseModel:Decodable>{
-    private func _get( url:String) async throws -> ResponseModel? {
+    private func _get( url:String,params:KeyValuePairs<String,String>?) async throws -> ResponseModel? {
         do{
             guard let url = URL(string: url) else {
                 throw URLError(.badURL)
             }
-            let urlRequest = URLRequest(url: url)
+            guard var components = URLComponents(url: url, resolvingAgainstBaseURL: false)else {
+                throw URLError(.badURL)
+            }
+            components.queryItems = []
+            if(params != nil){
+                params?.forEach({ (key: String, value: String) in
+                    components.queryItems?.append(URLQueryItem(name: key, value: value))
+                })
+            }
+            print("DataFetchingRequest Get: \(String(describing: components.url))")
+            let urlRequest = URLRequest(url: components.url!)
             if #available(iOS 15.0, *) {
                 let (data, _) = try await URLSession.shared.data(for: urlRequest)
                 let decoder = JSONDecoder()
@@ -130,10 +140,10 @@ struct DataFetchingRequest<ResponseModel:Decodable>{
         
     }
     func get( url:String) async throws -> ResponseModel? {
-        return try await self._get(url: url)
+        return try await self._get(url: url,params:nil)
     }
-    func get( url:String,param:AnyObject?) async throws -> ResponseModel? {
-        return try await self._get(url: url)
+    func get( url:String,param:KeyValuePairs<String,String>?) async throws -> ResponseModel? {
+        return try await self._get(url: url,params:param)
     }
 }
 
