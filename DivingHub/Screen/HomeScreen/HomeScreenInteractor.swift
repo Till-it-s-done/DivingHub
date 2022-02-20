@@ -11,7 +11,7 @@ protocol HomeScreenInteractorLogic:AnyObject{
     var   staticText:DataFetchingInteractor<AppTextModel>? {get set};
     var   staticTextRepo:AppTextRepository {get };
     
-    var   diveLogs:DataFetchingInteractor<[DiveLogModel]>? {get set};
+    var   diveLogs:DataFetchingInteractor<Strapi.Results<DiveLogModel>>? {get set};
     var   diveLogRepo:DiveLogRepository {get };
     
     var   gadgets:DataFetchingInteractor<[GadgetModel]>? {get set};
@@ -57,7 +57,7 @@ class HomeScreenInteractor:HomeScreenInteractorLogic{
     
     var staticTextRepo: AppTextRepository
     
-    var diveLogs: DataFetchingInteractor<[DiveLogModel]>?
+    var diveLogs: DataFetchingInteractor<Strapi.Results<DiveLogModel>>?
     
     var diveLogRepo: DiveLogRepository
     

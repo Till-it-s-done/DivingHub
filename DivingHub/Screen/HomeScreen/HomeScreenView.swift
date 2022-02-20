@@ -21,7 +21,7 @@ struct HomeScreenView: View {
     }
     var body: some View {
         HStack{
-            Text(vm.staticText.state.description)
+            Text(vm.diveLogs.lastData?.first?.title ?? "None")
                 .padding()
         }.onAppear(perform:{
             self.interactor.afterRender()

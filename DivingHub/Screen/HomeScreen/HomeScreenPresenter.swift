@@ -9,7 +9,7 @@ import Foundation
 protocol HomeScreenPresenterLogic:AnyObject {
     var view:HomeScreenViewState? {get set};
     var staticText:DataFetchingPresenter<AppTextModel>? {get set};
-    var diveLogs:DataFetchingPresenter<[DiveLogModel]>? {get set};
+    var diveLogs:DataFetchingPresenter<Strapi.Results<DiveLogModel>>? {get set};
     var diveSpots:DataFetchingPresenter<[DiveSpotModel]>? {get set};
     var gadgets:DataFetchingPresenter<[GadgetModel]>? {get set};
     var instructors:DataFetchingPresenter<[InstructorModel]>? {get set};
@@ -27,8 +27,8 @@ extension HomeScreenPresenterLogic{
         })
         self.diveLogs = DataFetchingPresenter(update:{state,data in
             if(data != nil){
-                self.view!.diveLogs.lastData = data!.map({ model in
-                    return model.toUIModel();
+                self.view!.diveLogs.lastData = data!.data.map({ model in
+                    return model.attributes.toUIModel();
                 })
             }
             self.view!.diveLogs.state = state;
@@ -66,7 +66,7 @@ final class HomeScreenPresenter:HomeScreenPresenterLogic{
     
     var staticText: DataFetchingPresenter<AppTextModel>?
     
-    var diveLogs: DataFetchingPresenter<[DiveLogModel]>?
+    var diveLogs: DataFetchingPresenter<Strapi.Results<DiveLogModel>>?
     
     var diveSpots: DataFetchingPresenter<[DiveSpotModel]>?
     

@@ -13,12 +13,12 @@ struct DiveLogFetchParamsModel {
 }
 
 protocol DiveLogRepository{
-    func fetchData(params:DiveLogFetchParamsModel) async throws->[DiveLogModel]
+    func fetchData(params:DiveLogFetchParamsModel) async throws->Strapi.Results<DiveLogModel>
 }
 
 struct DiveLogRepositoryNetwork:DiveLogRepository {
-    func fetchData(params: DiveLogFetchParamsModel) async throws -> [DiveLogModel] {
-        return try await DataFetchingRequest<[DiveLogModel]>().get(url: "\(Environment.current.baseUrl)/DiveLog") ?? []
+    func fetchData(params: DiveLogFetchParamsModel) async throws -> Strapi.Results<DiveLogModel> {
+        return try await DataFetchingRequest<Strapi.Results<DiveLogModel>>().get(url: "\(Environment.current.baseUrl)/dive-logs?populate=*") ?? Strapi.Results(data: [], meta:Strapi.Meta(pagination: Strapi.Pagination(page: 0, pageSize: 0, pageCount: 0, total: 0)))
     }
 }
 

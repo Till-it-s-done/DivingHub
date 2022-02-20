@@ -35,6 +35,9 @@ enum DataFetchingState {
         }
       }
 }
+
+
+
 struct DataFetchingModel<Model>{
     var state:DataFetchingState = .notLoaded
     var lastData:Model?
@@ -105,20 +108,26 @@ struct DataFetchingPresenter<Model>{
 
 struct DataFetchingRequest<ResponseModel:Decodable>{
     private func _get( url:String) async throws -> ResponseModel? {
-        guard let url = URL(string: url) else {
-            throw URLError(.badURL)
+        do{
+            guard let url = URL(string: url) else {
+                throw URLError(.badURL)
+            }
+            let urlRequest = URLRequest(url: url)
+            if #available(iOS 15.0, *) {
+                let (data, _) = try await URLSession.shared.data(for: urlRequest)
+                let decoder = JSONDecoder()
+                return try decoder.decode(ResponseModel?.self, from: data)
+            } else {
+                // Fallback on earlier versions
+                let (data, _) = try await URLSession.shared.data(from: url)
+                let decoder = JSONDecoder()
+                return try decoder.decode(ResponseModel?.self, from: data)
+            }
+        }catch {
+            print("DataFetchingRequest Error \(url) : \(error).");
+            throw error;
         }
-        let urlRequest = URLRequest(url: url)
-        if #available(iOS 15.0, *) {
-            let (data, _) = try await URLSession.shared.data(for: urlRequest)
-            let decoder = JSONDecoder()
-            return try decoder.decode(ResponseModel?.self, from: data)
-        } else {
-            // Fallback on earlier versions
-            let (data, _) = try await URLSession.shared.data(from: url)
-            let decoder = JSONDecoder()
-            return try decoder.decode(ResponseModel?.self, from: data)
-        }
+        
     }
     func get( url:String) async throws -> ResponseModel? {
         return try await self._get(url: url)
@@ -127,3 +136,4 @@ struct DataFetchingRequest<ResponseModel:Decodable>{
         return try await self._get(url: url)
     }
 }
+
