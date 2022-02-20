@@ -14,6 +14,26 @@
 		B744D92B27C1E068005865BD /* DivingHubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744D92A27C1E068005865BD /* DivingHubTests.swift */; };
 		B744D93527C1E068005865BD /* DivingHubUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744D93427C1E068005865BD /* DivingHubUITests.swift */; };
 		B744D93727C1E068005865BD /* DivingHubUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744D93627C1E068005865BD /* DivingHubUITestsLaunchTests.swift */; };
+		B744D96E27C1E180005865BD /* HomeScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744D95127C1E17F005865BD /* HomeScreenPresenter.swift */; };
+		B744D96F27C1E180005865BD /* HomeScreenViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744D95227C1E17F005865BD /* HomeScreenViewState.swift */; };
+		B744D97027C1E180005865BD /* HomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744D95327C1E17F005865BD /* HomeScreenView.swift */; };
+		B744D97127C1E180005865BD /* HomeScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744D95427C1E17F005865BD /* HomeScreenInteractor.swift */; };
+		B744D97227C1E180005865BD /* DiveSpotRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744D95627C1E17F005865BD /* DiveSpotRepository.swift */; };
+		B744D97327C1E180005865BD /* GadgetRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744D95727C1E17F005865BD /* GadgetRepository.swift */; };
+		B744D97427C1E180005865BD /* DiveLogRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744D95827C1E17F005865BD /* DiveLogRepository.swift */; };
+		B744D97527C1E180005865BD /* InstructorRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744D95927C1E17F005865BD /* InstructorRepository.swift */; };
+		B744D97627C1E180005865BD /* AppTextRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744D95A27C1E17F005865BD /* AppTextRepository.swift */; };
+		B744D97727C1E180005865BD /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744D95C27C1E17F005865BD /* Environment.swift */; };
+		B744D97827C1E180005865BD /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744D95F27C1E17F005865BD /* Icon.swift */; };
+		B744D97927C1E180005865BD /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744D96027C1E17F005865BD /* Card.swift */; };
+		B744D97A27C1E180005865BD /* DataFetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744D96227C1E17F005865BD /* DataFetching.swift */; };
+		B744D97B27C1E180005865BD /* AppTextModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744D96427C1E17F005865BD /* AppTextModel.swift */; };
+		B744D97C27C1E180005865BD /* GadgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744D96527C1E17F005865BD /* GadgetModel.swift */; };
+		B744D97E27C1E180005865BD /* DiveSpotModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744D96727C1E17F005865BD /* DiveSpotModel.swift */; };
+		B744D97F27C1E180005865BD /* InstructorSpotModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744D96827C1E17F005865BD /* InstructorSpotModel.swift */; };
+		B744D98027C1E180005865BD /* DiveLogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744D96927C1E17F005865BD /* DiveLogModel.swift */; };
+		B744D98127C1E180005865BD /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744D96C27C1E17F005865BD /* ListView.swift */; };
+		B744D98227C1E180005865BD /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744D96D27C1E17F005865BD /* ListPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +64,26 @@
 		B744D93027C1E068005865BD /* DivingHubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DivingHubUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B744D93427C1E068005865BD /* DivingHubUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivingHubUITests.swift; sourceTree = "<group>"; };
 		B744D93627C1E068005865BD /* DivingHubUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivingHubUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B744D95127C1E17F005865BD /* HomeScreenPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenPresenter.swift; sourceTree = "<group>"; };
+		B744D95227C1E17F005865BD /* HomeScreenViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenViewState.swift; sourceTree = "<group>"; };
+		B744D95327C1E17F005865BD /* HomeScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
+		B744D95427C1E17F005865BD /* HomeScreenInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenInteractor.swift; sourceTree = "<group>"; };
+		B744D95627C1E17F005865BD /* DiveSpotRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiveSpotRepository.swift; sourceTree = "<group>"; };
+		B744D95727C1E17F005865BD /* GadgetRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GadgetRepository.swift; sourceTree = "<group>"; };
+		B744D95827C1E17F005865BD /* DiveLogRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiveLogRepository.swift; sourceTree = "<group>"; };
+		B744D95927C1E17F005865BD /* InstructorRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructorRepository.swift; sourceTree = "<group>"; };
+		B744D95A27C1E17F005865BD /* AppTextRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTextRepository.swift; sourceTree = "<group>"; };
+		B744D95C27C1E17F005865BD /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		B744D95F27C1E17F005865BD /* Icon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
+		B744D96027C1E17F005865BD /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		B744D96227C1E17F005865BD /* DataFetching.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataFetching.swift; sourceTree = "<group>"; };
+		B744D96427C1E17F005865BD /* AppTextModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTextModel.swift; sourceTree = "<group>"; };
+		B744D96527C1E17F005865BD /* GadgetModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GadgetModel.swift; sourceTree = "<group>"; };
+		B744D96727C1E17F005865BD /* DiveSpotModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiveSpotModel.swift; sourceTree = "<group>"; };
+		B744D96827C1E17F005865BD /* InstructorSpotModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructorSpotModel.swift; sourceTree = "<group>"; };
+		B744D96927C1E17F005865BD /* DiveLogModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiveLogModel.swift; sourceTree = "<group>"; };
+		B744D96C27C1E17F005865BD /* ListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		B744D96D27C1E17F005865BD /* ListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +134,12 @@
 		B744D91827C1E067005865BD /* DivingHub */ = {
 			isa = PBXGroup;
 			children = (
+				B744D95B27C1E17F005865BD /* Global */,
+				B744D96327C1E17F005865BD /* Model */,
+				B744D96A27C1E17F005865BD /* Module */,
+				B744D95527C1E17F005865BD /* Repository */,
+				B744D94F27C1E17F005865BD /* Screen */,
+				B744D95D27C1E17F005865BD /* Share */,
 				B744D91927C1E067005865BD /* DivingHubApp.swift */,
 				B744D91B27C1E067005865BD /* ContentView.swift */,
 				B744D91D27C1E068005865BD /* Assets.xcassets */,
@@ -125,6 +171,100 @@
 				B744D93627C1E068005865BD /* DivingHubUITestsLaunchTests.swift */,
 			);
 			path = DivingHubUITests;
+			sourceTree = "<group>";
+		};
+		B744D94F27C1E17F005865BD /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				B744D95027C1E17F005865BD /* HomeScreen */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		B744D95027C1E17F005865BD /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B744D95127C1E17F005865BD /* HomeScreenPresenter.swift */,
+				B744D95227C1E17F005865BD /* HomeScreenViewState.swift */,
+				B744D95327C1E17F005865BD /* HomeScreenView.swift */,
+				B744D95427C1E17F005865BD /* HomeScreenInteractor.swift */,
+			);
+			path = HomeScreen;
+			sourceTree = "<group>";
+		};
+		B744D95527C1E17F005865BD /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				B744D95627C1E17F005865BD /* DiveSpotRepository.swift */,
+				B744D95727C1E17F005865BD /* GadgetRepository.swift */,
+				B744D95827C1E17F005865BD /* DiveLogRepository.swift */,
+				B744D95927C1E17F005865BD /* InstructorRepository.swift */,
+				B744D95A27C1E17F005865BD /* AppTextRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		B744D95B27C1E17F005865BD /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				B744D95C27C1E17F005865BD /* Environment.swift */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		B744D95D27C1E17F005865BD /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				B744D95E27C1E17F005865BD /* UI */,
+				B744D96127C1E17F005865BD /* Protocol */,
+			);
+			path = Share;
+			sourceTree = "<group>";
+		};
+		B744D95E27C1E17F005865BD /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				B744D95F27C1E17F005865BD /* Icon.swift */,
+				B744D96027C1E17F005865BD /* Card.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		B744D96127C1E17F005865BD /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				B744D96227C1E17F005865BD /* DataFetching.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		B744D96327C1E17F005865BD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B744D96427C1E17F005865BD /* AppTextModel.swift */,
+				B744D96527C1E17F005865BD /* GadgetModel.swift */,
+				B744D96727C1E17F005865BD /* DiveSpotModel.swift */,
+				B744D96827C1E17F005865BD /* InstructorSpotModel.swift */,
+				B744D96927C1E17F005865BD /* DiveLogModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B744D96A27C1E17F005865BD /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				B744D96B27C1E17F005865BD /* ListModule */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		B744D96B27C1E17F005865BD /* ListModule */ = {
+			isa = PBXGroup;
+			children = (
+				B744D96C27C1E17F005865BD /* ListView.swift */,
+				B744D96D27C1E17F005865BD /* ListPresenter.swift */,
+			);
+			path = ListModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +397,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B744D97527C1E180005865BD /* InstructorRepository.swift in Sources */,
+				B744D97727C1E180005865BD /* Environment.swift in Sources */,
 				B744D91C27C1E067005865BD /* ContentView.swift in Sources */,
+				B744D97227C1E180005865BD /* DiveSpotRepository.swift in Sources */,
+				B744D97E27C1E180005865BD /* DiveSpotModel.swift in Sources */,
+				B744D97B27C1E180005865BD /* AppTextModel.swift in Sources */,
+				B744D96F27C1E180005865BD /* HomeScreenViewState.swift in Sources */,
+				B744D97A27C1E180005865BD /* DataFetching.swift in Sources */,
+				B744D98127C1E180005865BD /* ListView.swift in Sources */,
+				B744D97F27C1E180005865BD /* InstructorSpotModel.swift in Sources */,
+				B744D97427C1E180005865BD /* DiveLogRepository.swift in Sources */,
+				B744D97027C1E180005865BD /* HomeScreenView.swift in Sources */,
+				B744D96E27C1E180005865BD /* HomeScreenPresenter.swift in Sources */,
+				B744D97C27C1E180005865BD /* GadgetModel.swift in Sources */,
+				B744D97627C1E180005865BD /* AppTextRepository.swift in Sources */,
+				B744D97927C1E180005865BD /* Card.swift in Sources */,
+				B744D98027C1E180005865BD /* DiveLogModel.swift in Sources */,
+				B744D98227C1E180005865BD /* ListPresenter.swift in Sources */,
+				B744D97827C1E180005865BD /* Icon.swift in Sources */,
+				B744D97327C1E180005865BD /* GadgetRepository.swift in Sources */,
 				B744D91A27C1E067005865BD /* DivingHubApp.swift in Sources */,
+				B744D97127C1E180005865BD /* HomeScreenInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
