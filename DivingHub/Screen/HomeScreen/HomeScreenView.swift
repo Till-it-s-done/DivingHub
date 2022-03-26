@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import UIKit
 import Combine
-import utility
+
 
 
 
@@ -52,14 +52,7 @@ class HomeScreenViewController: UIViewController {
     
    // function which is triggered when handleTap is called
    
-        let h = SectionHeaderView(model: SectionHeaderModel(title: "Test", showArrow: true, onTap: recog
-            
-        ))
-        h.isUserInteractionEnabled = true
-
-        self.view.addSubview(h)
-        h.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true;
-        h.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true;
+        
         
         
         self.interactor.afterRender()
