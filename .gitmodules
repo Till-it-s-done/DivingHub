@@ -1,0 +1,3 @@
+[submodule "DivingHub/util"]
+	path = DivingHub/util
+	url = git@github.com:Till-it-s-done/swiftutil.git
