@@ -35,6 +35,8 @@
 		B744D98027C1E180005865BD /* DiveLogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744D96927C1E17F005865BD /* DiveLogModel.swift */; };
 		B744D98127C1E180005865BD /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744D96C27C1E17F005865BD /* ListView.swift */; };
 		B744D98227C1E180005865BD /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744D96D27C1E17F005865BD /* ListPresenter.swift */; };
+		B7BC5BFD27C93386006F8CE0 /* utility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7BC5BFB27C93373006F8CE0 /* utility.framework */; platformFilter = ios; };
+		B7BC5BFE27C93386006F8CE0 /* utility.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B7BC5BFB27C93373006F8CE0 /* utility.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,20 @@
 			remoteInfo = DivingHub;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B7868D2C27C8903500D37BE6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B7BC5BFE27C93386006F8CE0 /* utility.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		B710CA3427C2697800B37137 /* Strapi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strapi.swift; sourceTree = "<group>"; };
@@ -86,6 +102,7 @@
 		B744D96927C1E17F005865BD /* DiveLogModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiveLogModel.swift; sourceTree = "<group>"; };
 		B744D96C27C1E17F005865BD /* ListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		B744D96D27C1E17F005865BD /* ListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
+		B7BC5BFB27C93373006F8CE0 /* utility.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = utility.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7BC5BFD27C93386006F8CE0 /* utility.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +154,7 @@
 		B744D91827C1E067005865BD /* DivingHub */ = {
 			isa = PBXGroup;
 			children = (
+				B7868D5F27C89CA200D37BE6 /* Frameworks */,
 				B744D95B27C1E17F005865BD /* Global */,
 				B744D96327C1E17F005865BD /* Model */,
 				B744D96A27C1E17F005865BD /* Module */,
@@ -270,6 +289,14 @@
 			path = ListModule;
 			sourceTree = "<group>";
 		};
+		B7868D5F27C89CA200D37BE6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B7BC5BFB27C93373006F8CE0 /* utility.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -280,6 +307,7 @@
 				B744D91227C1E067005865BD /* Sources */,
 				B744D91327C1E067005865BD /* Frameworks */,
 				B744D91427C1E067005865BD /* Resources */,
+				B7868D2C27C8903500D37BE6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -585,6 +613,12 @@
 				DEVELOPMENT_ASSET_PATHS = "\"DivingHub/Preview Content\"";
 				DEVELOPMENT_TEAM = NAZ23S9Q2H;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/DivingHub",
+					"$(PROJECT_DIR)/DivingHub/Frameworks",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -614,6 +648,12 @@
 				DEVELOPMENT_ASSET_PATHS = "\"DivingHub/Preview Content\"";
 				DEVELOPMENT_TEAM = NAZ23S9Q2H;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/DivingHub",
+					"$(PROJECT_DIR)/DivingHub/Frameworks",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
