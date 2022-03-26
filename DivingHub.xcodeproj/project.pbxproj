@@ -351,6 +351,7 @@
 		B7C93DAF27EEDC2900B9512C /* util */ = {
 			isa = PBXGroup;
 			children = (
+				B7C93DBE27EEDC2900B9512C /* PageBuilder.swift */,
 				B7C93DB027EEDC2900B9512C /* RSegmentControls.swift */,
 				B7C93DB127EEDC2900B9512C /* AttributeListHorizontal.swift */,
 				B7C93DB227EEDC2900B9512C /* UIShared.swift */,
@@ -393,7 +394,6 @@
 			isa = PBXGroup;
 			children = (
 				B7C93DBD27EEDC2900B9512C /* UIView.swift */,
-				B7C93DBE27EEDC2900B9512C /* PageBuilder.swift */,
 				B7C93DBF27EEDC2900B9512C /* UIStackView.swift */,
 				B7C93DC027EEDC2900B9512C /* UIColor.swift */,
 				B7C93DC127EEDC2900B9512C /* String.swift */,
