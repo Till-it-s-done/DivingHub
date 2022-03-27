@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B710CA3527C2697800B37137 /* Strapi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B710CA3427C2697800B37137 /* Strapi.swift */; };
+		B742E79C27EF5A9E0052C6D1 /* Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B742E79B27EF5A9E0052C6D1 /* Shimmer.swift */; };
 		B744D91A27C1E067005865BD /* DivingHubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744D91927C1E067005865BD /* DivingHubApp.swift */; };
 		B744D91C27C1E067005865BD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744D91B27C1E067005865BD /* ContentView.swift */; };
 		B744D91E27C1E068005865BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B744D91D27C1E068005865BD /* Assets.xcassets */; };
@@ -101,6 +102,7 @@
 
 /* Begin PBXFileReference section */
 		B710CA3427C2697800B37137 /* Strapi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strapi.swift; sourceTree = "<group>"; };
+		B742E79B27EF5A9E0052C6D1 /* Shimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shimmer.swift; sourceTree = "<group>"; };
 		B744D91627C1E067005865BD /* DivingHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DivingHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B744D91927C1E067005865BD /* DivingHubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivingHubApp.swift; sourceTree = "<group>"; };
 		B744D91B27C1E067005865BD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -371,6 +373,7 @@
 				B7C93DCF27EEDC2900B9512C /* Tag.swift */,
 				B7C93DD027EEDC2900B9512C /* DescriptionView.swift */,
 				B7C93DD127EEDC2900B9512C /* PageBuilderExtension.swift */,
+				B742E79B27EF5A9E0052C6D1 /* Shimmer.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -579,6 +582,7 @@
 				B744D98227C1E180005865BD /* ListPresenter.swift in Sources */,
 				B744D97827C1E180005865BD /* Icon.swift in Sources */,
 				B710CA3527C2697800B37137 /* Strapi.swift in Sources */,
+				B742E79C27EF5A9E0052C6D1 /* Shimmer.swift in Sources */,
 				B744D97327C1E180005865BD /* GadgetRepository.swift in Sources */,
 				B744D91A27C1E067005865BD /* DivingHubApp.swift in Sources */,
 				B7C93DDC27EEDC2900B9512C /* CardBase.swift in Sources */,

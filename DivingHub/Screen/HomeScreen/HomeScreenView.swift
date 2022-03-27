@@ -12,6 +12,19 @@ import Combine
 
 
 
+class MyPageBuilderView:PageBuilderView{
+    override func c_registerCells(){
+        FeatureCardCell.register(collectionView: collectionView)
+        ShimmerCell.register(collectionView: collectionView)
+    }
+    override func c_cell(collectionView: UICollectionView, indexPath: IndexPath, item: PageItem<Any>) -> UICollectionViewCell? {
+        return (
+            FeatureCardCell.cell(collectionView: collectionView, indexPath: indexPath, item: item) ??
+            ShimmerCell.cell(collectionView: collectionView, indexPath: indexPath, item: item)
+        )
+    }
+}
+
 
 class HomeScreenViewController: UIViewController {
     var vm: HomeScreenViewState;
@@ -29,10 +42,14 @@ class HomeScreenViewController: UIViewController {
     }
     
     private lazy var collectionView:UIView = {
-        let v = PageBuilderView(
+        let v = MyPageBuilderView(
             sections: [
                 section_title,
-                section_features
+                section_features,
+                section_divespots(),
+                section_instructors(),
+                section_gadgets(),
+                section_divelogs()
             ]
         );
         v.translatesAutoresizingMaskIntoConstraints  = false;
@@ -63,67 +80,124 @@ class HomeScreenViewController: UIViewController {
     
     private lazy var section_title:PageSectionInput = {
         return PageSectionInput(section:
-            PageSection(sectionType: .verticalAutoHeight, sectionHeaderType: .none, key: "section_title_s"), items: [
-                PageItem(loading: false, key: "section_title_s_i1", itemBuilder: {
-                    let stack = UIStackView()
-                    let th = ThemeManager.getTheme()
-                    let lb = UILabel.text_3_66x_normal("Thailand diving starts here").maxLine(maxLine: 2).align(.center)
-                    stack.addArrangedSubview(lb)
-                    stack.layoutMargins = UIEdgeInsets(top: th.space8*3, left: 0, bottom: th.space8*3, right: 0)
-                    stack.isLayoutMarginsRelativeArrangement = true
-                    return stack
-                }),
-            ]);
+                                    PageSection(
+                                        sectionType: .verticalAutoHeight,
+                                        sectionHeaderType: .none,
+                                        key: "section_title_s"),
+                                items: [
+                                    PageItem(loading: false, key: "section_title_s_i1",cell: BasicCell<Any>.reuseIdentifier, itemBuilder: {
+                                            let stack = UIStackView()
+                                            let th = ThemeManager.getTheme()
+                                            let lb = UILabel.text_3_66x_normal("Thailand diving starts here").maxLine(maxLine: 2).align(.center)
+                                            lb.translatesAutoresizingMaskIntoConstraints = false
+                                            stack.addArrangedSubview(lb)                                            
+                                            return stack.padding(paddingX: 0, paddingY: ThemeManager.getTheme().space8*3)
+                                    }),
+                                ]);
     }()
+    
     
     private lazy var section_features:PageSectionInput = {
         return PageSectionInput(section:
         PageSection(sectionType: .verticalAutoHeight, sectionHeaderType: .none, key: "section_feature_s"), items: [
-            PageItem(loading: false, key: "section_feature_f_i1", itemBuilder: {
-                return FeatureCardView(model:FeatureCardModel(
-                    title: "Dive Spot",
-                    descrption: "Explore all dive spots\nin Thailand",
-                    image:"https://upload.wikimedia.org/wikipedia/commons/4/47/PNG_transparency_demonstration_1.png?20210701224649",
-                    
-                    backgroundHexColor: UIColor.pastelPurpleStr(),
-                    onTap: nil
-                ))
-            }),
-            PageItem(loading: false, key: "section_feature_f_i2", itemBuilder: {
-                return FeatureCardView(model:FeatureCardModel(
-                    title: "Gadgets",
-                    descrption: "You new snoggle\nand reg and more",
-                    
-                    image:"https://upload.wikimedia.org/wikipedia/commons/4/47/PNG_transparency_demonstration_1.png?20210701224649",
-                    
-                    backgroundHexColor: UIColor.pastelGreenStr(),
-                    onTap: nil
-                ))
-            }),
-            PageItem(loading: false, key: "section_feature_f_i3", itemBuilder: {
-                return FeatureCardView(model:FeatureCardModel(
-                    title: "Dive logs",
-                    descrption: "Create and share\nyour dive history",
-                    
-                    image:"https://upload.wikimedia.org/wikipedia/commons/4/47/PNG_transparency_demonstration_1.png?20210701224649",
-                    
-                    backgroundHexColor: UIColor.pastelYellowStr(),
-                    onTap: nil
-                ))
-            }),
-            PageItem(loading: false, key: "section_feature_f_i4", itemBuilder: {
-                return FeatureCardView(model:FeatureCardModel(
-                    title: "Instructors",
-                    descrption: "Create and share\nyour dive history",
-                    
-                    image:"https://upload.wikimedia.org/wikipedia/commons/4/47/PNG_transparency_demonstration_1.png?20210701224649",
-                    
-                    backgroundHexColor: UIColor.pastelPinkStr(),
-                    onTap: nil
-                ))
-            }),
+            PageItem(loading: false, key: "section_feature_f_i1",cell: FeatureCardCell.reuseIdentifier,data:FeatureCardModel(
+                title: "Dive Spot",
+                descrption: "Explore all dive spots\nin Thailand",
+                image:"https://upload.wikimedia.org/wikipedia/commons/4/47/PNG_transparency_demonstration_1.png?20210701224649",
+                
+                backgroundHexColor: UIColor.pastelPurpleStr(),
+                onTap: nil
+            )),
+            PageItem(loading: false, key: "section_feature_f_i2",cell: FeatureCardCell.reuseIdentifier,data:FeatureCardModel(
+                title: "Gadgets",
+                descrption: "You new snoggle\nand reg and more",
+                
+                image:"https://upload.wikimedia.org/wikipedia/commons/4/47/PNG_transparency_demonstration_1.png?20210701224649",
+                
+                backgroundHexColor: UIColor.pastelGreenStr(),
+                onTap: nil
+            )),
+            PageItem(loading: false, key: "section_feature_f_i3",cell: FeatureCardCell.reuseIdentifier,data:FeatureCardModel(
+                title: "Dive logs",
+                descrption: "Create and share\nyour dive history",
+                
+                image:"https://upload.wikimedia.org/wikipedia/commons/4/47/PNG_transparency_demonstration_1.png?20210701224649",
+                
+                backgroundHexColor: UIColor.pastelYellowStr(),
+                onTap: nil
+            )),
+            PageItem(loading: false, key: "section_feature_f_i4",cell: FeatureCardCell.reuseIdentifier,data:FeatureCardModel(
+                title: "Instructors",
+                descrption: "Create and share\nyour dive history",
+                
+                image:"https://upload.wikimedia.org/wikipedia/commons/4/47/PNG_transparency_demonstration_1.png?20210701224649",
+                
+                backgroundHexColor: UIColor.pastelPinkStr(),
+                onTap: nil
+            )),
         ]);
     }()
+    
+    
+    private func section_divespots()->PageSectionInput{
+        return PageSectionInput(section:
+                                    PageSection(sectionType: .horizontalScroll(cardsOnScreen: 1),
+                                                sectionHeaderType: .title(
+                                                    model:
+                                                        SectionHeaderModel(title: "Top dive spots",
+                                                                           actionMode: .arrow,
+                                                                           onTap: nil)),
+                                                key: "section_divespots"),
+                                items: [
+                                    PageItem(loading: false, key: "s1x1",cell:ShimmerCell.reuseIdentifier)
+                                ]
+        );
+    }
+    private func section_instructors()->PageSectionInput{
+        return PageSectionInput(section:
+                                    PageSection(sectionType: .horizontalScroll(cardsOnScreen: 1),
+                                                sectionHeaderType: .title(
+                                                    model:
+                                                        SectionHeaderModel(title: "Best instructors",
+                                                                           actionMode: .arrow,
+                                                                           onTap: nil)),
+                                                key: "section_instructors"),
+                                items: [
+                                    PageItem(loading: false, key: "1x1",cell:ShimmerCell.reuseIdentifier)
+                                ]
+        );
+    }
+    private func section_gadgets()->PageSectionInput{
+        return PageSectionInput(section:
+                                    PageSection(sectionType: .horizontalScroll(cardsOnScreen: 1),
+                                                sectionHeaderType: .title(
+                                                    model:
+                                                        SectionHeaderModel(title: "Top Gadgets",
+                                                                           actionMode: .arrow,
+                                                                           onTap: nil)),
+                                                key: "section_gadgets"),
+                                items: [
+                                    PageItem(loading: false, key: "y1",cell:ShimmerCell.reuseIdentifier)
+                                ]
+        );
+    }
+    private func section_divelogs()->PageSectionInput{
+        return PageSectionInput(section:
+                                    PageSection(
+                                        
+                                        
+                                        sectionType: .horizontalScroll(cardsOnScreen: 1),
+                                        sectionHeaderType: .title(
+                                            model:
+                                                SectionHeaderModel(title: "Your Divelogs",
+                                                                   actionMode: .arrow,
+                                                                   onTap: nil)),
+                                        key: "section_divelogs"),
+                                items: [
+                                    PageItem(loading: false, key: "z1",cell:ShimmerCell.reuseIdentifier)
+                                ]
+        );
+    }
     
 }
 
