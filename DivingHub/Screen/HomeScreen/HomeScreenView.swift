@@ -14,11 +14,13 @@ import Combine
 
 class MyPageBuilderView:PageBuilderView{
     override func c_registerCells(){
+        DiggyCardCell.register(collectionView: collectionView)
         FeatureCardCell.register(collectionView: collectionView)
         ShimmerCell.register(collectionView: collectionView)
     }
     override func c_cell(collectionView: UICollectionView, indexPath: IndexPath, item: PageItem<Any>) -> UICollectionViewCell? {
         return (
+            DiggyCardCell.cell(collectionView: collectionView, indexPath: indexPath, item: item) ??
             FeatureCardCell.cell(collectionView: collectionView, indexPath: indexPath, item: item) ??
             ShimmerCell.cell(collectionView: collectionView, indexPath: indexPath, item: item)
         )
@@ -32,8 +34,10 @@ class HomeScreenViewController: UIViewController {
     
     
     private var subscriptions = Set<AnyCancellable>()
+    
     init(interactor:HomeScreenInteractorLogic)  {
         self.interactor=interactor;
+        
         vm = HomeScreenViewState(
             
         )
@@ -41,16 +45,33 @@ class HomeScreenViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
-    private lazy var collectionView:UIView = {
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.setNavigationBarHidden(true,animated: false)
+    }
+    @objc  func handleTapFeature(_ sender: MyTapGesture? = nil){
+        
+        self.navigationController?.setNavigationBarHidden(false,animated: false)
+        self.navigationController?.pushViewController(DetailScreenView(id: (sender?.id ?? "Unknown")), animated: true);
+    }
+    
+    func sections()->[PageSectionInput]{
+        return [
+            section_title,
+            section_features,
+            section_divespots(),
+            section_instructors(),
+            section_gadgets(),
+            section_divelogs()
+        ]
+    }
+    func refreshData(){
+        collectionView.refreshData(newSections: sections())
+    }
+    
+    private lazy var collectionView:MyPageBuilderView = {
         let v = MyPageBuilderView(
-            sections: [
-                section_title,
-                section_features,
-                section_divespots(),
-                section_instructors(),
-                section_gadgets(),
-                section_divelogs()
-            ]
+            sections: sections()
         );
         v.translatesAutoresizingMaskIntoConstraints  = false;
         v.backgroundColor  = ThemeManager.getTheme().bgColor
@@ -59,11 +80,11 @@ class HomeScreenViewController: UIViewController {
     }()
     
     override func viewDidLoad() {
+        
         self.interactor.afterRender()
         self.vm.$diveLogs.receive(on: DispatchQueue.main).sink{
             data in
-            print("self.vm.$diveLogs.sink>>:"+(data.lastData?.first?.title ?? ""))
-            
+                self.refreshData()
         }.store(in:&subscriptions)
         
         self.view.addSubview(collectionView)
@@ -106,7 +127,7 @@ class HomeScreenViewController: UIViewController {
                 image:"https://upload.wikimedia.org/wikipedia/commons/4/47/PNG_transparency_demonstration_1.png?20210701224649",
                 
                 backgroundHexColor: UIColor.pastelPurpleStr(),
-                onTap: nil
+                onTap: MyTapGesture(target: self, action: #selector(self.handleTapFeature(_:))).withId(dataId: "Dive Spot")
             )),
             PageItem(loading: false, key: "section_feature_f_i2",cell: FeatureCardCell.reuseIdentifier,data:FeatureCardModel(
                 title: "Gadgets",
@@ -182,6 +203,17 @@ class HomeScreenViewController: UIViewController {
         );
     }
     private func section_divelogs()->PageSectionInput{
+        var items:[PageItem<Any>] = []
+        if(self.vm.diveLogs.state == .loaded && self.vm.diveLogs.lastData != nil && !self.vm.diveLogs.lastData!.isEmpty){
+            items = (self.vm.diveLogs.lastData ?? []).map({ model in
+                PageItem(loading: false, key: (model as DiggyCardModel).id,cell:DiggyCardCell.reuseIdentifier,data: model)
+            })
+        }else{
+            items = [
+                PageItem(loading: false, key: "z1",cell:ShimmerCell.reuseIdentifier)
+            ]
+            
+        }
         return PageSectionInput(section:
                                     PageSection(
                                         
@@ -193,10 +225,10 @@ class HomeScreenViewController: UIViewController {
                                                                    actionMode: .arrow,
                                                                    onTap: nil)),
                                         key: "section_divelogs"),
-                                items: [
-                                    PageItem(loading: false, key: "z1",cell:ShimmerCell.reuseIdentifier)
-                                ]
+                                items: items
         );
+        
+        
     }
     
 }
@@ -204,13 +236,16 @@ class HomeScreenViewController: UIViewController {
 
 struct HomeScreenViewWrapper: UIViewControllerRepresentable {
     var interactor:HomeScreenInteractorLogic;
-    
-    func makeUIViewController(context: Context) -> HomeScreenViewController {
+    let navController =  UINavigationController()
+
+    func makeUIViewController(context: Context) -> UINavigationController {
         
-        return HomeScreenViewController(interactor:interactor)
+        navController.addChild(HomeScreenViewController(interactor:interactor))
+
+        return navController
     }
     
-    func updateUIViewController(_ viewController: HomeScreenViewController,
+    func updateUIViewController(_ viewController: UINavigationController,
                                 context: Context) {
         // Nothing to do here, since our view controller is
         // read-only from the outside.
@@ -220,6 +255,6 @@ struct HomeScreenViewWrapper: UIViewControllerRepresentable {
 
 struct HomeScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeScreenViewWrapper(interactor: HomeScreenInteractor(presenter: HomeScreenPresenter(), staticTextRepo: AppTextRepositoryyNetwork(), diveLogRepo: DiveLogRepositoryNetwork(), gadgetRepo: GadgetRepositoryNetwork(), instructorRepo: InstructorRepositoryNetwork(), diveSpotRepo: DiveSpotRepositoryNetwork())).edgesIgnoringSafeArea([.top,.bottom])
+        HomeScreenViewWrapper(interactor: HomeScreenInteractor(presenter: HomeScreenPresenter(), staticTextRepo: AppTextRepositoryyNetwork(), diveLogRepo: DiveLogRepositoryNetwork(), gadgetRepo: GadgetRepositoryNetwork(), instructorRepo: InstructorRepositoryNetwork(), diveSpotRepo: DiveSpotRepositoryNetwork()))
     }
 }

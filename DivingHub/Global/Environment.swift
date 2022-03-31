@@ -10,16 +10,19 @@ import Foundation
 
 struct Environment {
     let baseUrl: String
+    let mockup:Bool
 }
 
 extension Environment {
     #if STAGING
         static let current = Environment(
-             baseUrl: "http://localhost:3000/api"
+             baseUrl: "http://localhost:3000/api",
+             mockup:true
         )
     #else
         static let current = Environment(
-             baseUrl: "http://localhost:1337/api"
+            baseUrl: "http://localhost:1337/api",
+            mockup:true
             
         )
     #endif

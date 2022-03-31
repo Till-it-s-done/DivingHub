@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B710CA3527C2697800B37137 /* Strapi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B710CA3427C2697800B37137 /* Strapi.swift */; };
+		B7421EF327F5522500DCEF3D /* MyTapGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7421EF227F5522500DCEF3D /* MyTapGesture.swift */; };
 		B742E79C27EF5A9E0052C6D1 /* Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B742E79B27EF5A9E0052C6D1 /* Shimmer.swift */; };
 		B744D91A27C1E067005865BD /* DivingHubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744D91927C1E067005865BD /* DivingHubApp.swift */; };
 		B744D91C27C1E067005865BD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744D91B27C1E067005865BD /* ContentView.swift */; };
@@ -68,6 +69,7 @@
 		B7C93DEF27EEDC2900B9512C /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C93DCF27EEDC2900B9512C /* Tag.swift */; };
 		B7C93DF027EEDC2900B9512C /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C93DD027EEDC2900B9512C /* DescriptionView.swift */; };
 		B7C93DF127EEDC2900B9512C /* PageBuilderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C93DD127EEDC2900B9512C /* PageBuilderExtension.swift */; };
+		B7D7F84A27F4B775009F3050 /* DetailScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D7F84927F4B775009F3050 /* DetailScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +104,8 @@
 
 /* Begin PBXFileReference section */
 		B710CA3427C2697800B37137 /* Strapi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strapi.swift; sourceTree = "<group>"; };
+		B73A39D627F0551F00A86D7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B7421EF227F5522500DCEF3D /* MyTapGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTapGesture.swift; sourceTree = "<group>"; };
 		B742E79B27EF5A9E0052C6D1 /* Shimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shimmer.swift; sourceTree = "<group>"; };
 		B744D91627C1E067005865BD /* DivingHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DivingHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B744D91927C1E067005865BD /* DivingHubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivingHubApp.swift; sourceTree = "<group>"; };
@@ -165,6 +169,7 @@
 		B7C93DCF27EEDC2900B9512C /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		B7C93DD027EEDC2900B9512C /* DescriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		B7C93DD127EEDC2900B9512C /* PageBuilderExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageBuilderExtension.swift; sourceTree = "<group>"; };
+		B7D7F84927F4B775009F3050 /* DetailScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +220,7 @@
 		B744D91827C1E067005865BD /* DivingHub */ = {
 			isa = PBXGroup;
 			children = (
+				B73A39D627F0551F00A86D7C /* Info.plist */,
 				B7C93DAF27EEDC2900B9512C /* util */,
 				B744D95B27C1E17F005865BD /* Global */,
 				B744D96327C1E17F005865BD /* Model */,
@@ -258,6 +264,7 @@
 		B744D94F27C1E17F005865BD /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				B7D7F84827F4B703009F3050 /* DetailScreen */,
 				B744D95027C1E17F005865BD /* HomeScreen */,
 			);
 			path = Screen;
@@ -374,6 +381,7 @@
 				B7C93DD027EEDC2900B9512C /* DescriptionView.swift */,
 				B7C93DD127EEDC2900B9512C /* PageBuilderExtension.swift */,
 				B742E79B27EF5A9E0052C6D1 /* Shimmer.swift */,
+				B7421EF227F5522500DCEF3D /* MyTapGesture.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -404,6 +412,14 @@
 				B7C93DC327EEDC2900B9512C /* UILabel.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		B7D7F84827F4B703009F3050 /* DetailScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B7D7F84927F4B775009F3050 /* DetailScreenView.swift */,
+			);
+			path = DetailScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -574,6 +590,7 @@
 				B744D97C27C1E180005865BD /* GadgetModel.swift in Sources */,
 				B744D97627C1E180005865BD /* AppTextRepository.swift in Sources */,
 				B744D97927C1E180005865BD /* Card.swift in Sources */,
+				B7421EF327F5522500DCEF3D /* MyTapGesture.swift in Sources */,
 				B744D98027C1E180005865BD /* DiveLogModel.swift in Sources */,
 				B7C93DE127EEDC2900B9512C /* String.swift in Sources */,
 				B7C93DE727EEDC2900B9512C /* ThemeManager.swift in Sources */,
@@ -583,6 +600,7 @@
 				B744D97827C1E180005865BD /* Icon.swift in Sources */,
 				B710CA3527C2697800B37137 /* Strapi.swift in Sources */,
 				B742E79C27EF5A9E0052C6D1 /* Shimmer.swift in Sources */,
+				B7D7F84A27F4B775009F3050 /* DetailScreenView.swift in Sources */,
 				B744D97327C1E180005865BD /* GadgetRepository.swift in Sources */,
 				B744D91A27C1E067005865BD /* DivingHubApp.swift in Sources */,
 				B7C93DDC27EEDC2900B9512C /* CardBase.swift in Sources */,
@@ -762,6 +780,7 @@
 					"$(PROJECT_DIR)/DivingHub/Frameworks",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DivingHub/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -797,6 +816,7 @@
 					"$(PROJECT_DIR)/DivingHub/Frameworks",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DivingHub/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -29,6 +29,7 @@ enum Strapi{
     enum Components{
         struct Card:Decodable{
             var title:String?
+            var rating:Int?
         }
     }
 }

@@ -11,7 +11,16 @@ struct DiveLogModel:Decodable {
     func toUIModel()->String{
         return "Dive log with tags : "+["1","2"].joined(separator: "/");
     }
-    func toUIModel()->Card.Diggy.Model{
-        return Card.Diggy.Model(tag: nil, title: card?.title ?? "Empty Title", image: nil, backgroundHexColor: nil, rating: nil, attributes: []);
+    func toUIModel()->DiggyCardModel{
+        return DiggyCardModel(
+            id:self.card?.title ?? "any",
+            rating: 4,
+            tag: self.card?.title,
+            title: self.card?.title,
+            image:nil,
+            video: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+            backgroundHexColor: nil,
+            attributes: ["24-28m.","85-90mins"]
+        );
     }
 }
